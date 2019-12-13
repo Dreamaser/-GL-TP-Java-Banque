@@ -30,7 +30,7 @@ public class DossierBancaire
     public void retirer(double somme) throws Exception
     {
     	try
-    	{ compteCourant.takeMoney(somme); }
+    	{ cpCourant.takeMoney(somme); }
     	catch (Exception e)
     	{
     		throw e;
