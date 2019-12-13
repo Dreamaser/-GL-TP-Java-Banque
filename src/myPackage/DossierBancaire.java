@@ -1,4 +1,5 @@
 package myPackage;
+//héritage déja gérer dans la V2
 
 public class DossierBancaire
 {
