@@ -1,27 +1,39 @@
 package myPackage;
-//héritage déja gérer dans la V2
+//hÃ©ritage dÃ©ja gÃ©rer dans la V2
 
 public class DossierBancaire
 {
-	private CompteCourant cpCourant;// déclaration objet compte courant
-	private CompteEpargne cpEpargne;//déclaration objet compte épargne
+  
+  private CompteCourant cpCourant;// dÃ©claration objet compte courant
+	private CompteEpargne cpEpargne;//dÃ©claration objet compte Ã©pargne
 	
 	//Constructeur
     public DossierBancaire()
-    {
+    {    
     	cpCourant = new CompteCourant();//affecte une valeur a compte courant
-    	cpEpargne = new CompteEpargne();//affecte une valeur a compte épargne
+    	cpEpargne = new CompteEpargne();//affecte une valeur a compte Ã©pargne
     }
 
-    public void deposer(double value)//traite le dépot d'argent
+    public void deposer(double value)//traite le dÃ©pot d'argent
     {
-    	double val_epargne = value * 0.6;//donne 60 % de la valeur déposer 
+    	double val_epargne = value * 0.6;//donne 60 % de la valeur dÃ©poser 
     	
-    	cpEpargne.addMoney(val_epargne);//60% pour le compte épargne
+    	cpEpargne.addMoney(val_epargne);//60% pour le compte Ã©pargne
     	cpCourant.addMoney(value - val_epargne);//les 40% restant vont sur le compte courant 
 	}
+  
     public double get_solde() { return cpCourant.getSolde() + cpEpargne.getSolde(); }
-    //renvoie le solde du compte courant et le solde du compte épargne
+    //renvoie le solde du compte courant et le solde du compte Ã©pargne
     public void remunerer() { cpEpargne.remunererSolde(3.2); }
-    //ajoute les 3.2% d'intéret liées au compte épargne
+    //ajoute les 3.2% d'intÃ©ret liÃ©es au compte Ã©pargne
+
+    public void retirer(double somme) throws Exception
+    {
+    	try
+    	{ compteCourant.takeMoney(somme); }
+    	catch (Exception e)
+    	{
+    		throw e;
+		  }
+    }
 }
