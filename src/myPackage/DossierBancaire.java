@@ -2,20 +2,25 @@ package myPackage;
 
 public class DossierBancaire
 {
+	private CompteCourant compteCourant;
+	private CompteEpargne compteEpargne;
+	
 	//Constructeur
     public DossierBancaire()
     {
-    	m_solde = 0;
+    	compteCourant = new CompteCourant();
+    	compteEpargne = new CompteEpargne();
     }
 
     public void deposer(double value)
-    { m_solde += value; }
+    {
+    	double val_epargne = value * 0.6;
+    	
+    	compteEpargne.addMoney(val_epargne);
+    	compteCourant.addMoney(value - val_epargne);
+	}
+    public double get_solde() { return compteCourant.getSolde() + compteEpargne.getSolde(); }
+    public void remunerer() { compteEpargne.remunererSolde(3.2); }
     
-    public double get_solde()
-    { return m_solde; }
-    
-    public void remunerer()
-    { m_solde += (m_solde * 0.6) * 0.032; }
-	
-    private double m_solde;
+    // Add something
 }
